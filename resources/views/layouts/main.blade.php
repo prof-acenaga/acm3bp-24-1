@@ -31,6 +31,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="{{ route('contacto') }}">Contacto</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{{ route('/users') }}">Contacto</a>
+                                </li>
                             </ul>
                         </div>
                     </div>

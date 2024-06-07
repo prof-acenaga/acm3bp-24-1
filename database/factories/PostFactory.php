@@ -20,7 +20,7 @@ class PostFactory extends Factory
             'title' => fake()->name(),
             'content' => fake()->paragraph(),
             'created_at' => now(),
-            'user_id'=> 1
+            'user_id'=> rand(1,10)
         ];
     }
 }
