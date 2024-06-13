@@ -6,14 +6,12 @@ use App\Models\User;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
-
     return view('home');
-
-})->name('/');
+});
 
 Route::get('contacto', function () {
     return view('contact');
-})->name('contacto');
+});
 
 
 Route::resource('users', UserController::class);
