@@ -14,7 +14,7 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        return view('user.index', compact('users'));
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -30,7 +30,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'name'  =>  'required | min:3 | max:64',
+            'email' =>  'required | min:10 | max:64'
+        ]);
+
+        User::create($request->all());
+        return redirect()->route('users.index');
     }
 
     /**
@@ -46,15 +53,23 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::find($id);
+
+        return view('users.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $request->validate([
+            'name'  =>  'required | min:3 | max:64',
+            'email' =>  'required | min:10 | max:64'
+        ]);
+
+        $user->update($request->all());
+        return redirect()->route('users.index');
     }
 
     /**
@@ -62,6 +77,8 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        User::find($id)->delete();
+
+        return redirect()->back();
     }
 }

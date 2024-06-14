@@ -16,6 +16,3 @@ Route::get('contacto', function () {
 
 Route::resource('users', UserController::class);
 
-Route::controller(UserController::class)->group(function(){
-    Route::get('/users', 'index');
-});
