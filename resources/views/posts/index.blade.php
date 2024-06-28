@@ -16,6 +16,11 @@
             <ul>
                 @foreach ($posts as $post)
                     <li>{{ $post->title }} - {{ $post->user->name }}
+                        @if ($post->main_image)
+                            <img width="50" src="{{ asset('storage/'.$post->main_image) }}" alt="{{ $post->title }}">
+                        @else
+                            <img width="50" src="{{ asset('assets/img/No-Image-Placeholder.svg') }}" alt="sin imagen">
+                        @endif
                         <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
                             <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-warning">Editar</a>
                             @csrf

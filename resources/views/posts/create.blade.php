@@ -25,6 +25,10 @@
                     class="form-control"
                     required></textarea>
                 </div>
+                <div class=" mb-3 input-group">
+                    <label class="input-group-text" for="main_image">Imagen Principal</label>
+                    <input type="file" name="main_image" class="form-control" id="main_image">
+                </div>
                 <div class="mb-3">
                     <select name="user_id" id="user_id">
                         @foreach ($users as $user)
