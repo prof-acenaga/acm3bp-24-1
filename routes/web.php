@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-use App\Models\User;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
@@ -15,4 +14,9 @@ Route::get('contacto', function () {
 
 
 Route::resource('users', UserController::class);
+
+Route::resources([
+    'users'=> UserController::class,
+    'posts'=> PostController::class
+]);
 

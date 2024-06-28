@@ -34,6 +34,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="{{ url('users') }}">Usuarios</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{{ url('posts') }}">Posts</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
