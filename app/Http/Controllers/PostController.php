@@ -14,6 +14,13 @@ class PostController extends Controller
      */
     public function index()
     {
+        if(auth()->user()->role === 'user') {
+            $posts = Post::where('user_id', auth()->user()->id)->paginate(10);
+        } else {
+            $posts = Post::paginate(10);
+        }
+            return view('posts.index', compact('posts'));
+
         $posts = Post::paginate(10);
         return view('posts.index', compact('posts'));
     }

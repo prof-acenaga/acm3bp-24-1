@@ -31,12 +31,20 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="{{ url('contacto') }}">Contacto</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="{{ url('users') }}">Usuarios</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="{{ url('posts') }}">Posts</a>
-                                </li>
+                                @if (auth()->check())
+                                    @if (auth()->user()->role === 'admin')
+                                        <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page" href="{{ url('users') }}">Usuarios</a>
+                                        </li>
+                                    @endif
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="{{ url('posts') }}">Posts</a>
+                                    </li>
+                                @else
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="{{ url('login') }}">login</a>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                     </div>
