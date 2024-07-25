@@ -14,15 +14,7 @@
                 @endif
             <img src="{{ asset('assets/img/640x360.png') }}" alt="un texto">
         </div>
-        <ul>
-            @foreach ($posts as $post )
-                <li>{{ $post->title }}
-                    @if (auth()->check())
-                        <a href="{{ route('product.add', $post->id) }}">Agregar</a>
-                    @endif
-                </li>
-            @endforeach
-        </ul>
+
     </div>
 </div>
 

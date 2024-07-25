@@ -3,8 +3,10 @@
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
-use App\Models\Post;
+use Database\Factories\ProductFactory;
+use App\Models\Product;
 
 
 Route::get('/', function () {
@@ -12,11 +14,14 @@ Route::get('/', function () {
 });
 
 Route::get('contacto', function () {
-
-    $posts = Post::all();
-
-    return view('contact', compact('posts'));
+    return view('contact');
 });
+
+Route::get('productos', function () {
+        $products = Product::all();
+        return view('products', compact('products'));
+});
+
 
 
 Route::resource('users', UserController::class);
@@ -29,6 +34,8 @@ Route::middleware('auth')->group(function () {
         'posts'=> PostController::class
     ]);
     Route::get('product/{product}', [OrderController::class, 'addProduct'])->name('product.add');
+    Route::get('product/remove/{id}', [OrderController::class, 'removeProduct'])->name('product.remove');
+    Route::get('checkout', [OrderController::class, 'showCart'])->name('checkout');
 });
 
 

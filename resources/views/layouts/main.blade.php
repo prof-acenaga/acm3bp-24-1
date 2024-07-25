@@ -31,6 +31,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="{{ url('contacto') }}">Contacto</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{{ url('productos') }}">Productos</a>
+                                </li>
                                 @if (auth()->check())
                                     @if (auth()->user()->role === 'admin')
                                         <li class="nav-item">
@@ -39,6 +42,9 @@
                                     @endif
                                     <li class="nav-item">
                                         <a class="nav-link active" aria-current="page" href="{{ url('posts') }}">Posts</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="{{ route('checkout') }}">Pagar</a>
                                     </li>
                                 @else
                                     <li class="nav-item">
